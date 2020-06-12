@@ -17,6 +17,11 @@
     <a href="/products?action=create">Add New Product</a>
   </h2>
 <div align="center">
+  <input name="id" id="id">
+  <button>
+    <a href="/products?action=search&id=${id}">Search</a>
+  </button>
+
   <table border="1" cellpadding="5">
     <caption><h2>List of Products</h2></caption>
     <tr>

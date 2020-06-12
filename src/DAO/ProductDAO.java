@@ -72,9 +72,36 @@ public class ProductDAO implements IProductDAO {
     }
 
     @Override
-    public void deleteProduct(Product product) throws SQLException, ClassNotFoundException {
+    public void deleteProduct(int id) throws SQLException, ClassNotFoundException {
         String delete = "delete from product where id=?;";
         Connection connection = getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(delete);
+        preparedStatement.setInt(1,id);
+        preparedStatement.executeUpdate();
     }
+
+    @Override
+    public Product findById(int id) throws SQLException, ClassNotFoundException {
+        String delete = "select * from product where id=?;";
+        Connection connection = getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(delete);
+        preparedStatement.setInt(1,id);
+
+        Product product = null;
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            int _id = resultSet.getInt("id");
+            String name = resultSet.getString("name");
+            String price = resultSet.getString("price");
+            int amount = resultSet.getInt("amount");
+            String color = resultSet.getString("color");
+            String description = resultSet.getString("description");
+            String category = resultSet.getString("category");
+            product = new Product(_id, name, price, amount, color, description, category);
+        }
+        return product;
+    }
+
+
 }

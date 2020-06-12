@@ -37,6 +37,12 @@ public class ProductServlet extends HttpServlet {
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
+            case "delete":
+                try {
+                    deleteById(request,response);
+                } catch (SQLException | ClassNotFoundException throwables) {
+                    throwables.printStackTrace();
+                }
         }
     }
 
@@ -83,7 +89,26 @@ public class ProductServlet extends HttpServlet {
             case "edit":
                 showEditForm(request,response);
                 break;
+            case "delete":
+                try {
+                    deleteById(request,response);
+                } catch (SQLException | ClassNotFoundException throwables) {
+                    throwables.printStackTrace();
+                }
+            case "search":
+                showSearchProduct(request,response);
         }
+    }
+
+    private void showSearchProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("search.jsp");
+        requestDispatcher.forward(request,response);
+    }
+
+    private void deleteById(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        productDAO.deleteProduct(id);
+        response.sendRedirect("http://localhost:8080/products?action=showAll");
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -102,4 +127,5 @@ public class ProductServlet extends HttpServlet {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
         requestDispatcher.forward(request,response);
     }
+
 }
