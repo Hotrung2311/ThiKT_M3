@@ -22,10 +22,14 @@ public class ProductServlet extends HttpServlet {
             action = "";
         }
         switch (action){
-//            case "showAll":
-//                allProduct(request, response);
-//                break;
+            case "create":
+                createProduct(request, response);
+                break;
         }
+    }
+
+    private void createProduct(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -27,6 +27,8 @@
       <th>Color</th>
       <th>Description</th>
       <th>Category</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
     <c:forEach var="product" items="${productList}">
       <tr>
@@ -34,9 +36,13 @@
         <td><c:out value="${product.getName()}"/></td>
         <td><c:out value="${product.getPrice()}"/></td>
         <td><c:out value="${product.getAmount()}"/></td>
-        <td><c:out value="${product.getAmount()}"/></td>
+        <td><c:out value="${product.getColor()}"/></td>
+        <td><c:out value="${product.getDescription()}"/></td>
+        <td><c:out value="${product.getCategory()}"/></td>
         <td>
           <a href="/products?action=edit&id=${product.getId()}">Edit</a>
+        </td>
+        <td>
           <a href="/products?action=delete&id=${product.getId()}">Delete</a>
         </td>
       </tr>
