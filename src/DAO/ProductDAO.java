@@ -76,6 +76,5 @@ public class ProductDAO implements IProductDAO {
         String delete = "delete from product where id=?;";
         Connection connection = getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(delete);
-
     }
 }
