@@ -66,7 +66,7 @@ public class ProductDAO implements IProductDAO {
         preparedStatement.setString(4, product.getColor());
         preparedStatement.setString(5, product.getDescription());
         preparedStatement.setString(6, product.getCategory());
-        preparedStatement.setInt(6, product.getId());
+        preparedStatement.setInt(7, product.getId());
 
         preparedStatement.executeUpdate();
     }

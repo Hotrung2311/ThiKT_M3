@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: ADMIN
   Date: 6/12/2020
-  Time: 10:22 AM
+  Time: 10:42 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,15 +11,15 @@
     <title>User Management Application</title>
 </head>
 <body>
-    <h1>Product Management</h1>
-    <h2>
-        <a href="products?action=showAll">List All Products</a>
-    </h2>
+<h1>Product Management</h1>
+<h2>
+    <a href="products?action=showAll">List All Products</a>
+</h2>
 <div align="center">
     <form method="post">
         <table border="1" cellpadding="5">
             <caption>
-                <h2>Add New Product</h2>
+                <h2>Edit Product</h2>
             </caption>
             <tr>
                 <th>Product Name:</th>

@@ -14,7 +14,7 @@
 <body>
   <h1>Product Management</h1>
   <h2>
-    <a href="/?action=create">Add New Product</a>
+    <a href="/products?action=create">Add New Product</a>
   </h2>
 <div align="center">
   <table border="1" cellpadding="5">
